@@ -28,10 +28,13 @@ vector<string>* FileIO::fileRead(string filename)
     return file_text;
 }
 
-bool FileIO::fileWrite(string filename, vector<string>* file_text)
+bool FileIO::fileWrite(string filename, string* file_text, bool isAppend)
 {
     ofstream file;
-    file.open(filename);
+	if (isAppend)
+		file.open(filename, ios_base::app);
+    else
+        file.open(filename);
 
     if (!file.is_open())
     {
@@ -39,11 +42,7 @@ bool FileIO::fileWrite(string filename, vector<string>* file_text)
         return false;
     }
 
-    for (string s : *file_text)
-    {
-        file << s << endl;
-    }
-
+    file << file_text->data() << endl;
     file.close();
     return true;
 }
