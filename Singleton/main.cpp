@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS // Disable Vstudio warnings
+#define _CRT_SECURE_NO_WARNINGS  // Disable Vstudio warnings
 #include <iostream>
 #include <vector>
 #include "FileIO.h"
